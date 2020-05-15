@@ -1,0 +1,2 @@
+include ':app', ':movies-ui', ':movies-common', ':movies-database', ':movies-client'
+rootProject.name = "Movies"
