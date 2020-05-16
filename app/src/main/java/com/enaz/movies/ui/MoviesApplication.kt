@@ -1,5 +1,6 @@
 package com.enaz.movies.ui
 
+import com.enaz.movies.common.di.CommonModule
 import com.enaz.movies.database.di.DatabaseModule
 import com.enaz.movies.di.ClientModule
 import com.enaz.movies.ui.di.component.DaggerMoviesComponent
@@ -18,11 +19,13 @@ class MoviesApplication : DaggerApplication() {
     }
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
+        val context = applicationContext
         return DaggerMoviesComponent
             .builder()
             .application(this)
             .database(DatabaseModule(this))
             .client(ClientModule())
+            .common(CommonModule(context))
             .build()
     }
 }

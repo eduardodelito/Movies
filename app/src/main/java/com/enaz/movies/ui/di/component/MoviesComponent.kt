@@ -1,6 +1,7 @@
 package com.enaz.movies.ui.di.component
 
 import android.app.Application
+import com.enaz.movies.common.di.CommonModule
 import com.enaz.movies.database.di.DatabaseModule
 import com.enaz.movies.di.ClientModule
 import com.enaz.movies.ui.MoviesApplication
@@ -30,6 +31,7 @@ interface MoviesComponent : AndroidInjector<MoviesApplication> {
         fun application(application: Application): Builder
         fun database(databaseModule: DatabaseModule): Builder
         fun client(clientModule: ClientModule): Builder
+        fun common(commonModule: CommonModule): Builder
         fun build(): MoviesComponent
     }
 }

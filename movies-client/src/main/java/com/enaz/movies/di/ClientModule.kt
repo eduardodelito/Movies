@@ -3,6 +3,7 @@ package com.enaz.movies.di
 import com.enaz.movies.client.MoviesApiClient
 import com.enaz.movies.client.repository.MoviesRepository
 import com.enaz.movies.client.repository.MoviesRepositoryImpl
+import com.enaz.movies.common.manager.SharedPreferencesManager
 import com.enaz.movies.database.dao.MovieDao
 import dagger.Module
 import dagger.Provides
@@ -29,6 +30,10 @@ class ClientModule {
 
     @Provides
     @Singleton
-    fun provideMoviesRepository(moviesApiClient: MoviesApiClient, movieDao: MovieDao): MoviesRepository =
-        MoviesRepositoryImpl(moviesApiClient, movieDao)
+    fun provideMoviesRepository(
+        moviesApiClient: MoviesApiClient,
+        movieDao: MovieDao,
+        sharedPreferencesManager: SharedPreferencesManager
+    ): MoviesRepository =
+        MoviesRepositoryImpl(moviesApiClient, movieDao, sharedPreferencesManager)
 }

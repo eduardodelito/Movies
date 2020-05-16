@@ -35,11 +35,6 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : DaggerFrag
     abstract fun getBindingVariable(): Int
 
     /**
-     * Abstract function to initialize variables/objects
-     */
-    abstract fun initData()
-
-    /**
      * Abstract function to initialize views
      */
     abstract fun initViews()
@@ -67,7 +62,6 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : DaggerFrag
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        initData()
         initViews()
         subscribeUi()
     }

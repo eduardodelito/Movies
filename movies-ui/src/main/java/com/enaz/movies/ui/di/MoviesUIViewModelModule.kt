@@ -2,6 +2,7 @@ package com.enaz.movies.ui.di
 
 import androidx.lifecycle.ViewModel
 import com.enaz.movies.client.repository.MoviesRepository
+import com.enaz.movies.common.manager.SharedPreferencesManager
 import com.enaz.movies.common.viewmodel.ViewModelKey
 import com.enaz.movies.ui.tracks.MoviesViewModel
 import dagger.Module
@@ -16,6 +17,9 @@ class MoviesUIViewModelModule {
     @Provides
     @IntoMap
     @ViewModelKey(MoviesViewModel::class)
-    fun provideAddViewModel(moviesRepository: MoviesRepository): ViewModel =
-        MoviesViewModel(moviesRepository)
+    fun provideAddViewModel(
+        moviesRepository: MoviesRepository,
+        sharedPreferencesManager: SharedPreferencesManager
+    ): ViewModel =
+        MoviesViewModel(moviesRepository, sharedPreferencesManager)
 }

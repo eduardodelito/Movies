@@ -4,6 +4,8 @@ import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.enaz.movies.common.dialog.Banner
+import com.enaz.movies.common.dialog.ErrorBannerFragment
 import com.enaz.movies.common.fragment.BaseFragment
 import com.enaz.movies.common.util.setViewVisibility
 import com.enaz.movies.database.entity.MovieEntity
@@ -21,20 +23,24 @@ class MoviesFragment : BaseFragment<MoviesFragmentBinding, MoviesViewModel>(),
 
     private lateinit var moviesAdapter: MoviesAdapter
 
+    private var errorBannerFragment: ErrorBannerFragment? = null
+    private val TAG: String = MoviesFragment::class.java.simpleName
+
     override fun createLayout() = R.layout.movies_fragment
 
     override fun getBindingVariable() = BR.movieListViewModel
-
-    override fun initData() {
-
-    }
 
     override fun initViews() {
         moviesAdapter = MoviesAdapter()
 
         with(recycler_view) {
             layoutManager = LinearLayoutManager(context)
-            addItemDecoration(DividerItemDecoration(context, (layoutManager as LinearLayoutManager).orientation))
+            addItemDecoration(
+                DividerItemDecoration(
+                    context,
+                    (layoutManager as LinearLayoutManager).orientation
+                )
+            )
             adapter = moviesAdapter
         }
 
@@ -47,11 +53,21 @@ class MoviesFragment : BaseFragment<MoviesFragmentBinding, MoviesViewModel>(),
 
     override fun subscribeUi() {
         with(viewModel) {
-
-            errorMessage.observe(viewLifecycleOwner, Observer { messageId ->
-                error_view.setViewVisibility(messageId?.let {
-                    getString(messageId)
+            recentSearch.observe(viewLifecycleOwner, Observer { result ->
+                search_text_result.setViewVisibility(result?.let {
+                    getString(it.first, it.second)
                 })
+            })
+
+            errorBanner.observe(viewLifecycleOwner, Observer { result ->
+                result?.let {
+                    if (it.first) showErrorBanner(
+                        getString(
+                            R.string.no_search_found,
+                            result.second
+                        )
+                    )
+                }
             })
 
             loading.observe(viewLifecycleOwner, Observer { isLoading ->
@@ -69,6 +85,34 @@ class MoviesFragment : BaseFragment<MoviesFragmentBinding, MoviesViewModel>(),
     override fun onQueryTextSubmit(query: String?) = viewModel.onQueryTextSubmit(query)
 
     override fun onQueryTextChange(newText: String?) = false
+
+    /**
+     *  Show error banner listener
+     *  @param message
+     */
+    private fun showErrorBanner(message: String?) {
+        val errorBannerListener: ErrorBannerFragment.ErrorBannerListener =
+            object : ErrorBannerFragment.ErrorBannerListener {
+                override fun onErrorBannerRetry(tag: String?) {
+                    //TODO: Do nothing
+                }
+
+                override fun onErrorBannerDismiss(tag: String?) {
+                    viewModel.resetBanner()
+                }
+            }
+        val bannerBuilder: Banner.Builder = Banner.from(message, activity)
+            .cancelable()
+            .transactional()
+            .modal()
+            .addListener(errorBannerListener)
+
+        errorBannerFragment = bannerBuilder.build()
+        errorBannerFragment?.show(
+            childFragmentManager,
+            TAG
+        )
+    }
 
     companion object {
         fun newInstance() = MoviesFragment()

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Error Banner -->
+    <color name="banner_orange">#ff4606</color>
+    <color name="banner_dark_blue">#FF243A55</color>
+    <color name="banner_active_blue">#FF1994D7</color>
+    <color name="banner_green">#FF61941B</color>
+</resources>

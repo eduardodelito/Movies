@@ -16,4 +16,5 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation project(':movies-database')
+    implementation project(':movies-common')
 }
