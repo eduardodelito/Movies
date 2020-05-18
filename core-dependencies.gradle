@@ -8,6 +8,7 @@ apply from: "../ktlint.gradle"
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'androidx.navigation.safeargs'
 
 ext {
     appCompatVersion = Versions.appcompat

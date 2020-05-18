@@ -25,7 +25,7 @@ object Versions {
     const val room = "2.2.3"
     const val legacy_support = "1.0.0"
     const val lifecycle = "2.2.0"
-    const val navigation = "2.1.0"
+    const val navigation = "2.3.0-alpha06"
 
     //Google
     const val dagger = "2.25.3"

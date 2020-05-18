@@ -5,4 +5,6 @@
     <color name="banner_dark_blue">#FF243A55</color>
     <color name="banner_active_blue">#FF1994D7</color>
     <color name="banner_green">#FF61941B</color>
+    <color name="item_highlight">#FCFCD0</color>
+    <color name="item_highlight_default">#FFFFFF</color>
 </resources>

@@ -1,32 +1,36 @@
 package com.enaz.movies.ui.details
 
-import androidx.lifecycle.ViewModelProvider
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import com.enaz.movies.common.fragment.BaseFragment
+import com.enaz.movies.ui.model.MovieItem
+import com.enaz.movies.ui.tracks.BR
 import com.enaz.movies.ui.tracks.R
+import com.enaz.movies.ui.tracks.databinding.DetailsFragmentBinding
+import javax.inject.Inject
 
-class DetailsFragment : Fragment() {
+class DetailsFragment : BaseFragment<DetailsFragmentBinding, DetailsViewModel>() {
+
+    @Inject
+    override lateinit var viewModel: DetailsViewModel
+
+    override fun createLayout() = R.layout.details_fragment
+
+    override fun getBindingVariable() = BR.detailsViewModel
+
+    override fun initViews() {
+        val movieItem = arguments?.getSerializable(MOVIE_ITEM) as MovieItem?
+        updateDetails(movieItem)
+    }
+
+    override fun subscribeUi() {
+
+    }
 
     companion object {
+        const val MOVIE_ITEM = "movieItem"
         fun newInstance() = DetailsFragment()
     }
 
-    private lateinit var viewModel: DetailsViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.details_fragment, container, false)
+    fun updateDetails(movieItem: MovieItem?) {
+        println("artistName=========${movieItem?.artistName}")
     }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(DetailsViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
 }

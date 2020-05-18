@@ -21,10 +21,7 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.navigation:navigation-ui-ktx:2.2.2'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.2'
     implementation fileTree(dir: "libs", include: ["*.jar"])
-
     implementation project(':movies-ui')
     implementation project(':movies-database')
     implementation project(':movies-common')
