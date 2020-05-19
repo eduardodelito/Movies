@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import com.enaz.movies.ui.details.DetailsFragment
 import com.enaz.movies.ui.model.MovieItem
 import com.enaz.movies.ui.tracks.MoviesFragment
+import com.enaz.movies.ui.tracks.MoviesFragmentDirections
 import dagger.android.support.DaggerAppCompatActivity
 
 class MainActivity : DaggerAppCompatActivity(), MoviesFragment.OnMoviesFragmentListener {
@@ -20,7 +21,8 @@ class MainActivity : DaggerAppCompatActivity(), MoviesFragment.OnMoviesFragmentL
             supportFragmentManager.findFragmentById(R.id.detailsFragment) as DetailsFragment?
         if (detailsFragment == null) {
             val bundle = bundleOf(DetailsFragment.MOVIE_ITEM to movieItem)
-            view.findNavController().navigate(R.id.detailsFragment, bundle)
+            val action = MoviesFragmentDirections.actionMoviesFragmentToDetailsFragment()
+            view.findNavController().navigate(action.actionId, bundle)
         } else {
             detailsFragment.updateDetails(movieItem)
         }

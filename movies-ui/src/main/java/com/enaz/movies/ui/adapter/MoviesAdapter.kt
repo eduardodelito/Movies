@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.enaz.movies.common.util.replaceImageTo300
 import com.enaz.movies.ui.model.MovieItem
 import com.enaz.movies.ui.tracks.R
 import com.enaz.movies.ui.tracks.databinding.ItemMovieBinding
@@ -30,7 +31,7 @@ class MoviesAdapter(private val listener : OnMoviesAdapterListener) : RecyclerVi
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.itemMovieBinding.movieItem = list[position]
         holder.itemMovieBinding.executePendingBindings()
-        holder.itemMovieBinding.artworkUrl.setImageURI(list[position].artworkUrl)
+        holder.itemMovieBinding.artworkUrl.setImageURI(list[position].artworkUrl?.replaceImageTo300())
         holder.itemMovieBinding.itemLayout.setOnClickListener {
             listener.onMovieSelected(it, list[position])
             notifyItemChanged(position)
@@ -41,7 +42,7 @@ class MoviesAdapter(private val listener : OnMoviesAdapterListener) : RecyclerVi
         if(selectedPosition == position)
             holder.itemView.setBackgroundColor(holder.itemMovieBinding.root.context.getColor(R.color.item_highlight))
         else
-            holder.itemView.setBackgroundColor(holder.itemMovieBinding.root.context.getColor(R.color.item_highlight_default))
+            holder.itemView.setBackgroundColor(holder.itemMovieBinding.root.context.getColor(R.color.background))
     }
 
     override fun getItemCount() = list.size

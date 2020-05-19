@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="fontSmall1" parent="@android:style/TextAppearance.Small">
+        <item name="android:fontFamily">@font/gt_medium</item>
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="fontSmall3" parent="@android:style/TextAppearance.Small">
+        <item name="android:fontFamily">@font/gt_medium</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="fontMedium1" parent="@android:style/TextAppearance.Medium">
+        <item name="android:fontFamily">@font/gt_medium</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="fontMedium2" parent="@android:style/TextAppearance.Medium">
+        <item name="android:fontFamily">@font/gt_medium</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+    </style>
+</resources>

@@ -1,10 +1,12 @@
 package com.enaz.movies.ui.details
 
 import com.enaz.movies.common.fragment.BaseFragment
+import com.enaz.movies.common.util.replaceImageTo1000
 import com.enaz.movies.ui.model.MovieItem
 import com.enaz.movies.ui.tracks.BR
 import com.enaz.movies.ui.tracks.R
 import com.enaz.movies.ui.tracks.databinding.DetailsFragmentBinding
+import kotlinx.android.synthetic.main.details_fragment.*
 import javax.inject.Inject
 
 class DetailsFragment : BaseFragment<DetailsFragmentBinding, DetailsViewModel>() {
@@ -31,6 +33,9 @@ class DetailsFragment : BaseFragment<DetailsFragmentBinding, DetailsViewModel>()
     }
 
     fun updateDetails(movieItem: MovieItem?) {
-        println("artistName=========${movieItem?.artistName}")
+        viewModel.updateMovieItem(movieItem)
+        getBinding().executePendingBindings()
+        getBinding().invalidateAll()
+        movie_image.setImageURI(movieItem?.artworkUrl?.replaceImageTo1000())
     }
 }

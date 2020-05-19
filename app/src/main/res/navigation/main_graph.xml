@@ -10,10 +10,9 @@
         android:name="com.enaz.movies.ui.tracks.MoviesFragment"
         android:label="MoviesFragment">
         <action
-            android:id="@+id/action_moviesFragment_to_detailsFragment2"
+            android:id="@+id/action_moviesFragment_to_detailsFragment"
             app:destination="@id/detailsFragment"
-            app:popEnterAnim="@anim/fragment_fade_enter"
-            app:popExitAnim="@anim/fragment_fade_exit" />
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"

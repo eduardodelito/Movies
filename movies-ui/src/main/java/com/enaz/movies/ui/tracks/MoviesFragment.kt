@@ -53,7 +53,6 @@ class MoviesFragment : BaseFragment<MoviesFragmentBinding, MoviesViewModel>(),
             adapter = moviesAdapter
         }
 
-
         search_view.setOnQueryTextListener(this)
 
         swipe_to_refresh_view.setOnRefreshListener {

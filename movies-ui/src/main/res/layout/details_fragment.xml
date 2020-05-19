@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
+
         <variable
             name="detailsViewModel"
             type="com.enaz.movies.ui.details.DetailsViewModel" />
@@ -9,13 +11,97 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/item_highlight_default"
+        android:paddingLeft="@dimen/padding_16"
+        android:paddingTop="@dimen/margin_16"
+        android:paddingRight="@dimen/margin_16"
+        android:scrollbars="none">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/details_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone">
+            android:layout_height="wrap_content">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/movie_image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/layout_height_500"
+                android:adjustViewBounds="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:placeholderImage="@drawable/image_place_holder"
+                app:progressBarImage="@drawable/progress_animation" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/track_name_details"
+                style="@style/fontMedium1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16"
+                android:text="@{detailsViewModel.movieItem.trackName}"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/movie_image" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/primary_genre"
+                style="@style/fontMedium2"
+                android:layout_width="@dimen/layout_width_0"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10"
+                android:text="@{detailsViewModel.movieItem.primaryGenreName}"
+                android:textColor="@color/colorPrimaryDark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/track_name_details" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/track_price"
+                style="@style/fontSmall1"
+                android:layout_width="@dimen/layout_width_0"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/primary_genre" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/track_release_date"
+                style="@style/fontMedium1"
+                android:layout_width="@dimen/layout_width_0"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/track_price" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/track_sypnosis"
+                style="@style/fontMedium1"
+                android:layout_width="@dimen/layout_width_0"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10"
+                android:text="@string/sypnosis"
+                android:textColor="@color/colorPrimaryDark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/track_release_date" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/track_description"
+                style="@style/fontSmall3"
+                android:layout_width="@dimen/layout_width_0"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_5"
+                android:paddingBottom="@dimen/padding_16"
+                android:text="@{detailsViewModel.movieItem.longDescription}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/track_sypnosis" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

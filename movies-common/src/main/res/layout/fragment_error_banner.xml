@@ -45,8 +45,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginTop="@dimen/label_margin_20"
-        android:layout_marginBottom="@dimen/label_margin_20"
+        android:layout_marginTop="@dimen/margin_20"
+        android:layout_marginBottom="@dimen/margin_20"
         android:layout_toLeftOf="@+id/button_container"
         android:importantForAccessibility="yes"
         android:orientation="vertical">
