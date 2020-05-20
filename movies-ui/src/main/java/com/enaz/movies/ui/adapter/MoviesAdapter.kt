@@ -16,7 +16,7 @@ import com.enaz.movies.ui.tracks.databinding.ItemMovieBinding
 class MoviesAdapter(private val listener : OnMoviesAdapterListener) : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
 
     private var list: List<MovieItem> = mutableListOf()
-    var selectedPosition = -1
+    private var selectedPosition = -1 //For large screen
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val itemMovieBinding: ItemMovieBinding = DataBindingUtil.inflate(

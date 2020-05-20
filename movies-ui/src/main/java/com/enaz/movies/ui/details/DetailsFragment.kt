@@ -23,9 +23,7 @@ class DetailsFragment : BaseFragment<DetailsFragmentBinding, DetailsViewModel>()
         updateDetails(movieItem)
     }
 
-    override fun subscribeUi() {
-
-    }
+    override fun subscribeUi() {}
 
     companion object {
         const val MOVIE_ITEM = "movieItem"

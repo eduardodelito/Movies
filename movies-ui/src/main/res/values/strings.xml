@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="error_query">Invalid query. Please try again.</string>
-    <string name="sypnosis">Sypnosis</string>
+    <string name="price_label">Price\u0020</string>
+    <string name="sypnosis_label">Sypnosis</string>
 </resources>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -36,19 +37,19 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/track_name_details"
-                style="@style/fontMedium1"
+                style="@style/Font.Medium.Black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_16"
                 android:text="@{detailsViewModel.movieItem.trackName}"
-                android:textColor="@color/colorBlack"
+                android:textColor="@color/color_black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/movie_image" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/primary_genre"
-                style="@style/fontMedium2"
+                style="@style/Font.Medium.Black"
                 android:layout_width="@dimen/layout_width_0"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_10"
@@ -60,32 +61,34 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/track_price"
-                style="@style/fontSmall1"
+                style="@style/Font.Small.Red"
                 android:layout_width="@dimen/layout_width_0"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_5"
+                android:text="@{detailsViewModel.price()}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/primary_genre" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/track_release_date"
-                style="@style/fontMedium1"
+                style="@style/Font.Medium.PrimaryDark"
                 android:layout_width="@dimen/layout_width_0"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_10"
-                android:textColor="@color/colorBlack"
+                android:textColor="@color/color_black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/track_price" />
+                app:layout_constraintTop_toBottomOf="@+id/track_price"
+                tools:text="@{detailsViewModel.releaseDate()}"/>
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/track_sypnosis"
-                style="@style/fontMedium1"
+                android:id="@+id/sypnosis_label"
+                style="@style/Font.Medium.PrimaryDark"
                 android:layout_width="@dimen/layout_width_0"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_10"
-                android:text="@string/sypnosis"
+                android:text="@string/sypnosis_label"
                 android:textColor="@color/colorPrimaryDark"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +96,7 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/track_description"
-                style="@style/fontSmall3"
+                style="@style/Font.Small.Black"
                 android:layout_width="@dimen/layout_width_0"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_5"
@@ -101,7 +104,7 @@
                 android:text="@{detailsViewModel.movieItem.longDescription}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/track_sypnosis" />
+                app:layout_constraintTop_toBottomOf="@+id/sypnosis_label" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

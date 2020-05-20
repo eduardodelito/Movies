@@ -13,41 +13,62 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/item_layout"
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="@dimen/layout_height_120">
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/artworkUrl"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/layout_width_0"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
-            android:padding="4dp"
+            android:padding="@dimen/padding_5"
+            app:actualImageScaleType="fitBottomStart"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:placeholderImage="@drawable/image_place_holder"
             app:progressBarImage="@drawable/progress_animation"
-            app:roundAsCircle="true"
-            app:actualImageScaleType="fitBottomStart"/>
+            app:roundAsCircle="true" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/artistName"
-            style="@style/TextAppearance.AppCompat.Large"
-            android:layout_width="0dp"
+            android:id="@+id/item_track_name"
+            style="@style/Font.Medium.Black"
+            android:layout_width="@dimen/layout_width_0"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginStart="@dimen/margin_5"
+            android:layout_marginTop="@dimen/margin_5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/artworkUrl"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="@{movieItem.artistName}" />
+            tools:text="@{movieItem.trackName}" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/collectionName"
-            android:layout_width="0dp"
+            android:id="@+id/primary_genre_name"
+            style="@style/Font.Small.PrimaryDark"
+            android:layout_width="@dimen/layout_width_0"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_5"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/artistName"
-            app:layout_constraintTop_toBottomOf="@+id/artistName"
-            tools:text="@{movieItem.collectionName}" />
+            app:layout_constraintStart_toStartOf="@+id/item_track_name"
+            app:layout_constraintTop_toBottomOf="@+id/item_track_name"
+            tools:text="@{movieItem.primaryGenreName}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/item_price_label"
+            style="@style/Font.Small.Red"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10"
+            android:text="@string/price_label"
+            app:layout_constraintStart_toStartOf="@+id/primary_genre_name"
+            app:layout_constraintTop_toBottomOf="@+id/primary_genre_name" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/item_price"
+            style="@style/Font.Small.Red"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/item_price_label"
+            app:layout_constraintStart_toEndOf="@+id/item_price_label"
+            tools:text="@{movieItem.trackPrice.toString() +' '+ movieItem.currency.toString()}" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
