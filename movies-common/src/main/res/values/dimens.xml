@@ -8,6 +8,7 @@
     <dimen name="layout_height_20">20dp</dimen>
     <dimen name="layout_height_120">120dp</dimen>
     <dimen name="layout_height_500">500dp</dimen>
+    <dimen name="layout_height_600">600dp</dimen>
 
     <!--margin-->
     <dimen name="margin_5">5dp</dimen>

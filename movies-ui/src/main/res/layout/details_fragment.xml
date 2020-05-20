@@ -27,8 +27,10 @@
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/movie_image"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/layout_height_500"
+                android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
+                android:background="@color/transparent_66"
+                app:actualImageScaleType="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -47,52 +49,109 @@
                 app:layout_constraintTop_toBottomOf="@+id/movie_image" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/movie_primary_genre"
-                style="@style/Font.Medium.Black.Bold"
+                android:id="@+id/movie_artist_details_label"
+                style="@style/Font.Small.Black.Bold"
                 android:layout_width="@dimen/layout_width_0"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_10"
-                android:text="@{String.format(@string/movie_genre, detailsViewModel.movieItem.primaryGenreName)}"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/margin_16"
+                android:text="@string/movie_artist_label"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/movie_name_details" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/movie_price"
-                style="@style/Font.Small.Red"
+                android:id="@+id/movie_artist_details"
+                style="@style/Font.Small.PrimaryDark.Bold"
                 android:layout_width="@dimen/layout_width_0"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16"
+                android:text="@{detailsViewModel.movieItem.artistName}"
+                app:layout_constraintStart_toEndOf="@+id/movie_artist_details_label"
+                app:layout_constraintTop_toBottomOf="@+id/movie_name_details" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/movie_primary_genre_label"
+                style="@style/Font.Small.Black.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10"
+                android:text="@string/movie_genre_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/movie_artist_details" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/movie_primary_genre"
+                style="@style/Font.Small.PrimaryDark.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10"
+                android:text="@{detailsViewModel.movieItem.primaryGenreName}"
+                app:layout_constraintStart_toEndOf="@+id/movie_primary_genre_label"
+                app:layout_constraintTop_toBottomOf="@+id/movie_artist_details" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/movie_price_label"
+                style="@style/Font.Small.Black.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_5"
-                android:text="@{String.format(@string/movie_price, detailsViewModel.movieItem.trackPrice.toString(), detailsViewModel.movieItem.currency.toString())}"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/movie_price_label"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/movie_primary_genre" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/movie_release_date"
-                style="@style/Font.Small.PrimaryDark"
-                android:layout_width="@dimen/layout_width_0"
+                android:id="@+id/movie_price"
+                style="@style/Font.Small.Red.Bold"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_10"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/movie_price"
-                tools:text="@{String.format(@string/movie_release, detailsViewModel.releaseDate())}" />
+                android:layout_marginTop="@dimen/margin_5"
+                android:text="@{String.format(@string/movie_price, detailsViewModel.movieItem.trackPrice.toString(), detailsViewModel.movieItem.currency.toString())}"
+                app:layout_constraintStart_toEndOf="@+id/movie_price_label"
+                app:layout_constraintTop_toBottomOf="@+id/movie_primary_genre" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/movie_time_length"
-                style="@style/Font.Small.PrimaryDark"
-                android:layout_width="@dimen/layout_width_0"
+                android:id="@+id/movie_release_date_label"
+                style="@style/Font.Small.Black.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_5"
+                android:text="@string/movie_release_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/movie_price" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/movie_release_date"
+                style="@style/Font.Small.PrimaryDark.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_5"
+                android:text="@{detailsViewModel.releaseDate()}"
+                app:layout_constraintStart_toEndOf="@+id/movie_release_date_label"
+                app:layout_constraintTop_toBottomOf="@+id/movie_price" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/movie_time_length_label"
+                style="@style/Font.Small.Black.Bold"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_10"
-                android:text="@{String.format(@string/movie_length, detailsViewModel.trackTime())}"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/movie_length_label"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/movie_release_date" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/movie_time_length"
+                style="@style/Font.Small.PrimaryDark.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10"
+                android:text="@{detailsViewModel.trackTime()}"
+                app:layout_constraintStart_toEndOf="@+id/movie_time_length_label"
+                app:layout_constraintTop_toBottomOf="@+id/movie_release_date" />
+
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/movie_sypnosis_label"
-                style="@style/Font.Medium.Black.Bold"
+                style="@style/Font.Small.Black.Bold"
                 android:layout_width="@dimen/layout_width_0"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_10"

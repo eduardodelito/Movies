@@ -2,10 +2,12 @@
 <resources>
     <string name="error_query">Invalid query. Please try again.</string>
     <string name="price_label">Price:\u0020</string>
-    <string name="space">\u0020</string>
-    <string name="sypnosis_label">Sypnosis:</string>
+    <string name="movie_artist_label">Artist :\u0020</string>
+    <string name="movie_genre_label">Genre :\u0020</string>
     <string name="movie_genre">Genre: %1s</string>
-    <string name="movie_price">Price: %1s %2s</string>
-    <string name="movie_release">Release Date: %1s</string>
-    <string name="movie_length">Length: %1s</string>
+    <string name="movie_price_label">Price :\u0020</string>
+    <string name="movie_price">%1s %2s</string>
+    <string name="movie_release_label">Release Date :\u0020</string>
+    <string name="movie_length_label">Length :\u0020</string>
+    <string name="sypnosis_label">Sypnosis :\u0020</string>
 </resources>
