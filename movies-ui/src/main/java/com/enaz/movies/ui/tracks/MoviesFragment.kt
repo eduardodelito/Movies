@@ -85,7 +85,9 @@ class MoviesFragment : BaseFragment<MoviesFragmentBinding, MoviesViewModel>(),
 
             getMovies().observe(viewLifecycleOwner, Observer<List<MovieEntity>> { list ->
                 if (list.isNotEmpty()) {
-                    moviesAdapter.updateData(list.entityModelToMovieItem())
+                    val movies = list.entityModelToMovieItem()
+                    moviesAdapter.updateData(movies)
+                    listener?.loadFirstIndex(movies[0])
                 }
             })
         }
@@ -137,6 +139,8 @@ class MoviesFragment : BaseFragment<MoviesFragmentBinding, MoviesViewModel>(),
 
     interface OnMoviesFragmentListener {
         fun onMovieSelected(view: View, movieItem: MovieItem?)
+
+        fun loadFirstIndex(movieItem: MovieItem?)
     }
 
     companion object {

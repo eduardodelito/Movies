@@ -16,7 +16,6 @@ import com.enaz.movies.ui.tracks.databinding.ItemMovieBinding
 class MoviesAdapter(private val listener : OnMoviesAdapterListener) : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
 
     private var list: List<MovieItem> = mutableListOf()
-    private var selectedPosition = -1 //For large screen
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val itemMovieBinding: ItemMovieBinding = DataBindingUtil.inflate(
@@ -34,22 +33,13 @@ class MoviesAdapter(private val listener : OnMoviesAdapterListener) : RecyclerVi
         holder.itemMovieBinding.artworkUrl.setImageURI(list[position].artworkUrl?.replaceImageTo300())
         holder.itemMovieBinding.itemLayout.setOnClickListener {
             listener.onMovieSelected(it, list[position])
-            notifyItemChanged(position)
-            notifyItemChanged(selectedPosition)
-            selectedPosition = position
         }
-
-        if(selectedPosition == position)
-            holder.itemView.setBackgroundColor(holder.itemMovieBinding.root.context.getColor(R.color.item_highlight))
-        else
-            holder.itemView.setBackgroundColor(holder.itemMovieBinding.root.context.getColor(R.color.background))
     }
 
     override fun getItemCount() = list.size
 
     fun updateData(list: List<MovieItem>) {
         this.list = list
-        selectedPosition = -1
         notifyDataSetChanged()
     }
 

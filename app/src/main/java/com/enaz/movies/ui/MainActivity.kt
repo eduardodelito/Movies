@@ -27,4 +27,8 @@ class MainActivity : DaggerAppCompatActivity(), MoviesFragment.OnMoviesFragmentL
             detailsFragment.updateDetails(movieItem)
         }
     }
+
+    override fun loadFirstIndex(movieItem: MovieItem?) {
+        (supportFragmentManager.findFragmentById(R.id.detailsFragment) as DetailsFragment?)?.updateDetails(movieItem)
+    }
 }
