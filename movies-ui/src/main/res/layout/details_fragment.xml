@@ -36,66 +36,73 @@
                 app:progressBarImage="@drawable/progress_animation" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/track_name_details"
-                style="@style/Font.Medium.Black"
+                android:id="@+id/movie_name_details"
+                style="@style/Font.Large.Black.Bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_16"
                 android:text="@{detailsViewModel.movieItem.trackName}"
-                android:textColor="@color/color_black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/movie_image" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/primary_genre"
-                style="@style/Font.Medium.Black"
+                android:id="@+id/movie_primary_genre"
+                style="@style/Font.Medium.Black.Bold"
                 android:layout_width="@dimen/layout_width_0"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_10"
-                android:text="@{detailsViewModel.movieItem.primaryGenreName}"
-                android:textColor="@color/colorPrimaryDark"
+                android:text="@{String.format(@string/movie_genre, detailsViewModel.movieItem.primaryGenreName)}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/track_name_details" />
+                app:layout_constraintTop_toBottomOf="@+id/movie_name_details" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/track_price"
+                android:id="@+id/movie_price"
                 style="@style/Font.Small.Red"
                 android:layout_width="@dimen/layout_width_0"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_5"
-                android:text="@{detailsViewModel.price()}"
+                android:text="@{String.format(@string/movie_price, detailsViewModel.movieItem.trackPrice.toString(), detailsViewModel.movieItem.currency.toString())}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/primary_genre" />
+                app:layout_constraintTop_toBottomOf="@+id/movie_primary_genre" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/track_release_date"
-                style="@style/Font.Medium.PrimaryDark"
+                android:id="@+id/movie_release_date"
+                style="@style/Font.Small.PrimaryDark"
                 android:layout_width="@dimen/layout_width_0"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_10"
-                android:textColor="@color/color_black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/track_price"
-                tools:text="@{detailsViewModel.releaseDate()}"/>
+                app:layout_constraintTop_toBottomOf="@+id/movie_price"
+                tools:text="@{String.format(@string/movie_release, detailsViewModel.releaseDate())}" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/sypnosis_label"
-                style="@style/Font.Medium.PrimaryDark"
+                android:id="@+id/movie_time_length"
+                style="@style/Font.Small.PrimaryDark"
+                android:layout_width="@dimen/layout_width_0"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10"
+                android:text="@{String.format(@string/movie_length, detailsViewModel.trackTime())}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/movie_release_date" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/movie_sypnosis_label"
+                style="@style/Font.Medium.Black.Bold"
                 android:layout_width="@dimen/layout_width_0"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_10"
                 android:text="@string/sypnosis_label"
-                android:textColor="@color/colorPrimaryDark"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/track_release_date" />
+                app:layout_constraintTop_toBottomOf="@+id/movie_time_length" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/track_description"
+                android:id="@+id/movie_description"
                 style="@style/Font.Small.Black"
                 android:layout_width="@dimen/layout_width_0"
                 android:layout_height="wrap_content"
@@ -104,7 +111,7 @@
                 android:text="@{detailsViewModel.movieItem.longDescription}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sypnosis_label" />
+                app:layout_constraintTop_toBottomOf="@+id/movie_sypnosis_label" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

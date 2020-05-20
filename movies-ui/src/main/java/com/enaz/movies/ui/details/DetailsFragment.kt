@@ -31,7 +31,7 @@ class DetailsFragment : BaseFragment<DetailsFragmentBinding, DetailsViewModel>()
     }
 
     fun updateDetails(movieItem: MovieItem?) {
-        viewModel.updateMovieItem(movieItem)
+        viewModel.movieItem = movieItem
         getBinding().executePendingBindings()
         getBinding().invalidateAll()
         movie_image.setImageURI(movieItem?.artworkUrl?.replaceImageTo1000())

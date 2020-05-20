@@ -31,7 +31,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/item_track_name"
-            style="@style/Font.Medium.Black"
+            style="@style/Font.Medium.Black.Bold"
             android:layout_width="@dimen/layout_width_0"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_5"
@@ -43,14 +43,14 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/primary_genre_name"
-            style="@style/Font.Small.PrimaryDark"
+            style="@style/Font.Small.PrimaryDark.Bold"
             android:layout_width="@dimen/layout_width_0"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/item_track_name"
             app:layout_constraintTop_toBottomOf="@+id/item_track_name"
-            tools:text="@{movieItem.primaryGenreName}" />
+            tools:text="@{String.format(@string/movie_genre, movieItem.primaryGenreName)}" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/item_price_label"
