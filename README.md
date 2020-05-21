@@ -20,6 +20,15 @@ Itunes Movies is using Model-View-ViewModel (ie MVVM) template client applicatio
  * Dagger2
  * Coroutine
  
+ <b>Mobile Phone: List Screen and Details Screen:</b><br />
+ <img src="https://github.com/eduardodelito/Movies/blob/master/screen/Screenshot_1590060430.png" width="30%" />&nbsp;&nbsp;
+ <img src="https://github.com/eduardodelito/Movies/blob/master/screen/Screenshot_1590060437.png" width="30%" />
+ <br /><br />
+ 
+ <b>Tablet: List and Details on single screen.</b><br />
+ <img src="https://github.com/eduardodelito/Movies/blob/master/screen/Screenshot_1590060465.png" width="50%" />
+   &nbsp;&nbsp;
+ <br /><br />
  
  
 
