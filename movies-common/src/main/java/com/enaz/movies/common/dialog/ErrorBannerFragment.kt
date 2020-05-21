@@ -7,7 +7,6 @@ import android.os.Build
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.view.*
-import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageButton
@@ -20,7 +19,11 @@ import com.enaz.movies.common.R
 import com.enaz.movies.common.anim.AnimationListenerAdapter
 import com.enaz.movies.common.util.ViewUtil
 
-
+/**
+ * Error banner fragment.
+ *
+ * Created by eduardo.delito on 4/14/20.
+ */
 class ErrorBannerFragment : DialogFragment() {
 
     private val EXTRA_FOCUS_DELAY = 200

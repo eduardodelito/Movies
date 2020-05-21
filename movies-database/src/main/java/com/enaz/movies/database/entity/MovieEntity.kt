@@ -5,6 +5,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 /**
+ * Entity data model class.
+ *
  * Created by eduardo.delito on 5/14/20.
  */
 @Entity(tableName = "MovieEntity")

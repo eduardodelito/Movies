@@ -4,6 +4,8 @@ import com.enaz.movies.client.model.MoviesResult
 import com.enaz.movies.database.entity.MovieEntity
 
 /**
+ * Mapper to switch client list model.
+ *
  * Created by eduardo.delito on 5/15/20.
  */
 fun List<MoviesResult>.clientModelToMovieEntity() : List<MovieEntity> {

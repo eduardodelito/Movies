@@ -9,6 +9,11 @@ import com.enaz.movies.ui.tracks.databinding.DetailsFragmentBinding
 import kotlinx.android.synthetic.main.details_fragment.*
 import javax.inject.Inject
 
+/**
+ * DetailsFragment to display movie details.
+ *
+ * Created by eduardo.delito on 5/16/20.
+ */
 class DetailsFragment : BaseFragment<DetailsFragmentBinding, DetailsViewModel>() {
 
     @Inject
@@ -18,18 +23,27 @@ class DetailsFragment : BaseFragment<DetailsFragmentBinding, DetailsViewModel>()
 
     override fun getBindingVariable() = BR.detailsViewModel
 
+    /**
+     * Initialize views
+     */
     override fun initViews() {
         val movieItem = arguments?.getSerializable(MOVIE_ITEM) as MovieItem?
         updateDetails(movieItem)
     }
 
-    override fun subscribeUi() {}
+    override fun subscribeUi() {
+        //Do nothing for now.
+    }
 
     companion object {
         const val MOVIE_ITEM = "movieItem"
         fun newInstance() = DetailsFragment()
     }
 
+    /**
+     * Update movie details.
+     * @param movieItem data to display details.
+     */
     fun updateDetails(movieItem: MovieItem?) {
         viewModel.movieItem = movieItem
         getBinding().executePendingBindings()

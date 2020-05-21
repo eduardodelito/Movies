@@ -6,6 +6,8 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
 /**
+ * Class for activity binding module.
+ *
  * Created by eduardo.delito on 5/14/20.
  */
 @Module

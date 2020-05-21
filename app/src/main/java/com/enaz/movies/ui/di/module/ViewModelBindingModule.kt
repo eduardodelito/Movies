@@ -7,6 +7,8 @@ import dagger.Binds
 import dagger.Module
 
 /**
+ * Class for view model module.
+ *
  * Created by eduardo.delito on 5/14/20.
  */
 @Module(

@@ -6,6 +6,8 @@ import com.enaz.movies.di.ClientModule
 import dagger.Module
 
 /**
+ * Class for dependency modules.
+ *
  * Created by eduardo.delito on 5/14/20.
  */
 @Module(

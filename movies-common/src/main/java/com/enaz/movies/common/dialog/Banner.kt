@@ -8,6 +8,8 @@ import java.lang.ref.WeakReference
 import java.util.*
 
 /**
+ * Error Banner builder with functions stuff.
+ *
  * Created by eduardo.delito on 4/13/20.
  */
 object Banner {

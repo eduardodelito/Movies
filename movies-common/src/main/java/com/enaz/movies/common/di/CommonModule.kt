@@ -9,6 +9,8 @@ import dagger.Provides
 import javax.inject.Singleton
 
 /**
+ * Common module with the provided methods.
+ *
  * Created by eduardo.delito on 5/16/20.
  */
 @Module

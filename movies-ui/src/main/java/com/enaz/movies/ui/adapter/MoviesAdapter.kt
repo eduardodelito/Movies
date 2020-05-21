@@ -11,9 +11,12 @@ import com.enaz.movies.ui.tracks.R
 import com.enaz.movies.ui.tracks.databinding.ItemMovieBinding
 
 /**
+ * Adapter class to display movies in list.
+ *
  * Created by eduardo.delito on 5/16/20.
  */
-class MoviesAdapter(private val listener : OnMoviesAdapterListener) : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
+class MoviesAdapter(private val listener: OnMoviesAdapterListener) :
+    RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
 
     private var list: List<MovieItem> = mutableListOf()
 
@@ -38,6 +41,10 @@ class MoviesAdapter(private val listener : OnMoviesAdapterListener) : RecyclerVi
 
     override fun getItemCount() = list.size
 
+    /**
+     * Method to update list of movies.
+     * @param list movies
+     */
     fun updateData(list: List<MovieItem>) {
         this.list = list
         notifyDataSetChanged()
@@ -46,7 +53,15 @@ class MoviesAdapter(private val listener : OnMoviesAdapterListener) : RecyclerVi
     inner class MovieViewHolder(val itemMovieBinding: ItemMovieBinding) :
         RecyclerView.ViewHolder(itemMovieBinding.root)
 
+    /**
+     * Adapter listener
+     */
     interface OnMoviesAdapterListener {
+        /**
+         * onClick method to display details for mobile/tablet.
+         * @param view used to navigate fragment.
+         * @param movieItem data to display details.
+         */
         fun onMovieSelected(view: View, movieItem: MovieItem)
     }
 }

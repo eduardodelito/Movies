@@ -3,6 +3,8 @@ package com.enaz.movies.ui.model
 import java.io.Serializable
 
 /**
+ * Movie data model.
+ *
  * Created by eduardo.delito on 5/16/20.
  */
 data class MovieItem (val kind : String?,

@@ -1,11 +1,11 @@
 package com.enaz.movies.ui.util
 
-import com.enaz.movies.client.model.MoviesResult
 import com.enaz.movies.database.entity.MovieEntity
 import com.enaz.movies.ui.model.MovieItem
-import com.enaz.movies.util.clientModelToMovieEntity
 
 /**
+ * Mapper to switch ui list model.
+ *
  * Created by eduardo.delito on 5/16/20.
  */
 

@@ -15,6 +15,8 @@ import dagger.android.AndroidInjector
 import javax.inject.Singleton
 
 /**
+ * Class to load all modules/dependency component.
+ *
  * Created by eduardo.delito on 5/14/20.
  */
 @Singleton

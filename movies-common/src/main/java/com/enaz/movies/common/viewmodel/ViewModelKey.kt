@@ -5,6 +5,8 @@ import dagger.MapKey
 import kotlin.reflect.KClass
 
 /**
+ * Class to utilize functionality.
+ *
  * Created by eduardo.delito on 4/28/20.
  */
 @MustBeDocumented

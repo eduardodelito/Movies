@@ -11,8 +11,8 @@ import dagger.android.support.DaggerFragment
 import java.lang.reflect.ParameterizedType
 
 /**
- * Base Fragment Class that will handle shared events/transactions to all fragments that will subclass this
- *
+ * Base Fragment Class that will handle shared events/transactions to all fragments.
+ * Includes data binding and view model.
  * Created by eduardo.delito on 5/14/20.
  */
 abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : DaggerFragment() {

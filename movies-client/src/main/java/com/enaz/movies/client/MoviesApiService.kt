@@ -5,6 +5,8 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 /**
+ * Retrofit service to get and query movies.
+ *
  * Created by eduardo.delito on 5/15/20.
  */
 interface MoviesApiService {

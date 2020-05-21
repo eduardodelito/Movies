@@ -6,6 +6,8 @@ import com.enaz.movies.database.dao.MovieDao
 import com.enaz.movies.database.entity.MovieEntity
 
 /**
+ * Database class
+ *
  * Created by eduardo.delito on 5/14/20.
  */
 @Database(entities = [MovieEntity::class], version = 1, exportSchema = false)

@@ -14,23 +14,45 @@ import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
 /**
+ * Class that connects data from service and database.
+ *
  * Created by eduardo.delito on 5/15/20.
  */
 interface MoviesRepository {
+    /**
+     * LiveData for the recent search.
+     */
     val recentSearch: LiveData<Pair<Int, String>?>
 
+    /**
+     * LiveData for the error banner.
+     */
     val errorBanner: LiveData<Pair<Boolean, String>?>
 
+    /**
+     * LiveData for showing the loading indicator.
+     */
     val loading: LiveData<Boolean>
 
+    /**
+     * Search movies based on the query string value.
+     * @param search string to search
+     */
     fun searchMovies(search: String)
 
+    /**
+     * Get movie list from local data base.
+     */
     fun getMovies(): LiveData<List<MovieEntity>>
 
+    /**
+     * Get the recent search.
+     */
     fun getRecent()
 
-    fun deleteMovies()
-
+    /**
+     * Reset error banner.
+     */
     fun resetBanner()
 }
 
@@ -52,8 +74,15 @@ class MoviesRepositoryImpl(
     private val _errorBanner = MutableLiveData<Pair<Boolean, String>?>()
     override val errorBanner: LiveData<Pair<Boolean, String>?> get() = _errorBanner
 
+    /**
+     * Get movie list from local data base.
+     */
     override fun getMovies() = movieDao.getMovies()
 
+    /**
+     * Search movies based on the query string value.
+     * @param search string to search.
+     */
     override fun searchMovies(search: String) {
         _loading.postValue(true)
         launch {
@@ -64,6 +93,11 @@ class MoviesRepositoryImpl(
         }
     }
 
+    /**
+     * Insert the movies response from the service into local database.
+     * @param moviesResponse movies response from the service.
+     * @param search string used to search.
+     */
     private suspend fun insertMoviesBG(moviesResponse: MoviesResponse, search: String) {
         withContext(Dispatchers.IO) {
             try {
@@ -91,16 +125,9 @@ class MoviesRepositoryImpl(
         }
     }
 
-    override fun deleteMovies() {
-        launch { deleteMoviesBG() }
-    }
-
-    private suspend fun deleteMoviesBG() {
-        withContext(Dispatchers.IO) {
-            movieDao.deleteAll()
-        }
-    }
-
+    /**
+     * Get the recent search.
+     */
     override fun getRecent() {
         val recent = sharedPreferencesManager.lastSearch(SharedPreferencesManagerImpl.LAST_SEARCH)
         _recentSearch.postValue(
@@ -112,6 +139,9 @@ class MoviesRepositoryImpl(
         )
     }
 
+    /**
+     * Reset error banner.
+     */
     override fun resetBanner() {
         _errorBanner.postValue(
             Pair(

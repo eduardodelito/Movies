@@ -10,6 +10,7 @@ import dagger.Provides
 import dagger.android.ContributesAndroidInjector
 
 /**
+ * Fragment UI binding.
  * Created by eduardo.delito on 5/14/20.
  */
 @Module

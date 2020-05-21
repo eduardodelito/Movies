@@ -6,6 +6,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 /**
+ * Class to initialize Retrofit.
+ *
  * Created by eduardo.delito on 5/15/20.
  */
 class MoviesApiClient(okHttp: OkHttpClient.Builder) : Interceptor, Authenticator {
@@ -22,6 +24,10 @@ class MoviesApiClient(okHttp: OkHttpClient.Builder) : Interceptor, Authenticator
             .build()
     }
 
+    /**
+     *  method to intercept request.
+     *  @param chain interceptor.
+     */
     override fun intercept(chain: Interceptor.Chain): Response {
         var request = chain.request()
 
@@ -32,10 +38,18 @@ class MoviesApiClient(okHttp: OkHttpClient.Builder) : Interceptor, Authenticator
         return chain.proceed(request)
     }
 
+    /**
+     * Request authenticator
+     * @param route
+     * @param response
+     */
     override fun authenticate(route: Route?, response: Response): Request? {
         return response.request().newBuilder().build()
     }
 
+    /**
+     * Instance call on for the retrofit service.
+     */
     fun getMoviesResponse(): MoviesApiService {
         return retrofit.create(MoviesApiService::class.java)
     }

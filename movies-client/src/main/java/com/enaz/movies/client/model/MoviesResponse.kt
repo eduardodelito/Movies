@@ -1,10 +1,15 @@
 package com.enaz.movies.client.model
 
 /**
+ * MoviesResponse is the model class used to request from the services.
+ *
  * Created by eduardo.delito on 5/15/20.
  */
 data class MoviesResponse (val results : List<MoviesResult>, val resultCount : Int)
 
+/**
+ * MoviesResult is the model class used to parse movies response from the service.
+ */
 data class MoviesResult (val wrapperType : String?,
                               val kind : String?,
                               val artistId : Long?,

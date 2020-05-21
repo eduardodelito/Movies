@@ -11,6 +11,10 @@ import java.util.concurrent.TimeUnit
  * Created by eduardo.delito on 5/15/20.
  */
 
+/**
+ * Enable/Disable AppCompatTextView.
+ * @param message set message value if available.
+ */
 fun AppCompatTextView.setViewVisibility(message: String?) {
     with(this) {
         visibility = message?.let {
@@ -28,33 +32,32 @@ fun String.replaceImageTo300() = this.replace(IMAGE_SIZE_100, IMAGE_SIZE_300)
 
 fun String.replaceImageTo1000() = this.replace(IMAGE_SIZE_100, IMAGE_SIZE_1000)
 
-const val DATE_FORMAT_yyyy_MM_DD_T_HH_mm_SS_Z: String = "yyyy-MM-dd'T'HH:mm:SS'Z'"
-const val DATE_FORMAT_MMMM_dd_yyyy: String = "MMMM dd, yyyy"
-const val TIME_ZONE: String = "UTC"
+const val NOT_AVAILABLE: String = "Not Available"
 
 /**
- * Pattern: yyyy-MM-dd'T'HH:mm:SS'Z'
+ * Format Date
+ * @param fromFormat original format of date.
+ * @param toFormat to the new format of date.
+ * @param timeZone target timezone.
  */
-fun String.formatStringToDate(): Date? {
-    val sdf = SimpleDateFormat(DATE_FORMAT_yyyy_MM_DD_T_HH_mm_SS_Z, Locale.getDefault())
-    sdf.timeZone = TimeZone.getTimeZone(TIME_ZONE)
-    return sdf.parse(this)
-}
-
-/**
- * Pattern: MMMM dd, yyyy
- */
-fun Date.formatDateToString(): String? {
-    val sdf = SimpleDateFormat(DATE_FORMAT_MMMM_dd_yyyy, Locale.getDefault())
+fun String.formatDate(fromFormat: String, toFormat: String, timeZone: String?): String? {
     return try {
-        sdf.format(this)
+        val simpleDateFormat = SimpleDateFormat(fromFormat, Locale.getDefault())
+        simpleDateFormat.timeZone = TimeZone.getTimeZone(timeZone)
+        simpleDateFormat.parse(this)?.let {
+            SimpleDateFormat(toFormat, Locale.getDefault()).format(it)
+        } ?: NOT_AVAILABLE
     } catch (e: ParseException) {
-        "Not Available"
+        NOT_AVAILABLE
     }
 }
 
 const val TIME_FORMAT: String = "%02d:%02d:%02d"
 
+/**
+ * Format time
+ * Long millis to string hh:mm:ss
+ */
 fun Long.formatTime(): String {
     return String.format(
         TIME_FORMAT, TimeUnit.MILLISECONDS.toHours(this),

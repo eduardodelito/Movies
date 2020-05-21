@@ -9,6 +9,7 @@ import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 
 /**
+ * Dagger Application class
  * Created by eduardo.delito on 5/14/20.
  */
 class MoviesApplication : DaggerApplication() {
@@ -17,7 +18,9 @@ class MoviesApplication : DaggerApplication() {
         super.onCreate()
         Fresco.initialize(this)
     }
-
+    /**
+     * Dagger injection for all modules.
+     */
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
         val context = applicationContext
         return DaggerMoviesComponent

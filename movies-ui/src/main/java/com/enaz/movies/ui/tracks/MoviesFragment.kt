@@ -18,6 +18,11 @@ import com.enaz.movies.ui.util.entityModelToMovieItem
 import kotlinx.android.synthetic.main.movies_fragment.*
 import javax.inject.Inject
 
+/**
+ * Movie list fragment.
+ *
+ * Created by eduardo.delito on 5/16/20.
+ */
 class MoviesFragment : BaseFragment<MoviesFragmentBinding, MoviesViewModel>(),
     SearchView.OnQueryTextListener {
 
@@ -35,8 +40,16 @@ class MoviesFragment : BaseFragment<MoviesFragmentBinding, MoviesViewModel>(),
 
     override fun getBindingVariable() = BR.movieListViewModel
 
+    /**
+     * Initialize views
+     */
     override fun initViews() {
         moviesAdapter = MoviesAdapter(object : MoviesAdapter.OnMoviesAdapterListener {
+            /**
+             * onClick method to display details for mobile/tablet.
+             * @param view used to navigate fragment.
+             * @param movieItem data to display details.
+             */
             override fun onMovieSelected(view: View, movieItem: MovieItem) {
                 listener?.onMovieSelected(view, movieItem)
             }
@@ -60,6 +73,9 @@ class MoviesFragment : BaseFragment<MoviesFragmentBinding, MoviesViewModel>(),
         }
     }
 
+    /**
+     * Initialize view model with LiveData functions.
+     */
     override fun subscribeUi() {
         with(viewModel) {
             recentSearch.observe(viewLifecycleOwner, Observer { result ->
@@ -137,9 +153,21 @@ class MoviesFragment : BaseFragment<MoviesFragmentBinding, MoviesViewModel>(),
         listener = null
     }
 
+    /**
+     * Movies fragment listener.
+     */
     interface OnMoviesFragmentListener {
+        /**
+         * onClick method to display details for mobile/tablet.
+         * @param view used to navigate fragment.
+         * @param movieItem data to display details.
+         */
         fun onMovieSelected(view: View, movieItem: MovieItem?)
 
+        /**
+         * Display first index as default details.
+         * @param movieItem data to display details.
+         */
         fun loadFirstIndex(movieItem: MovieItem?)
     }
 

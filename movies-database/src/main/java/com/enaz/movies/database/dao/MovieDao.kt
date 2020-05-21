@@ -6,9 +6,10 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.enaz.movies.database.entity.MovieEntity
-import com.enaz.movies.database.util.Resource
 
 /**
+ * Interface for insert, query, delete data movies.
+ *
  * Created by eduardo.delito on 5/14/20.
  */
 @Dao

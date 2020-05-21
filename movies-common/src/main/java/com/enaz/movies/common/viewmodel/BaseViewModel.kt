@@ -3,7 +3,7 @@ package com.enaz.movies.common.viewmodel
 import androidx.lifecycle.ViewModel
 
 /**
- * ViewModel base class that will handle shared events/transactions to all ViewModels that will subclass this
+ * ViewModel base class that will handle shared events/transactions to all ViewModels.
  *
  * Created by eduardo.delito on 4/23/20.
  */
