@@ -52,6 +52,15 @@ fun String.formatDate(fromFormat: String, toFormat: String, timeZone: String?): 
     }
 }
 
+/**
+ * Date to string format.
+ * @param format pattern
+ */
+fun Date.formatDateToString(format: String?): String {
+    val sdf = SimpleDateFormat(format, Locale.getDefault())
+    return sdf.format(this)
+}
+
 const val TIME_FORMAT: String = "%02d:%02d:%02d"
 
 /**

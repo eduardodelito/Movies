@@ -20,4 +20,7 @@ abstract class BaseViewModel : ViewModel() {
 
     open fun onStop() {
     }
+
+    open fun onDestroy() {
+    }
 }

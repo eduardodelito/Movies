@@ -15,7 +15,7 @@ interface SharedPreferencesManager {
      * @param key
      * @param value
      */
-    fun lastSearch(key: String?, value: String? = null): String
+    fun savePrefs(key: String?, value: String? = null): String
 }
 
 class SharedPreferencesManagerImpl(private val sharedPreferences: SharedPreferences): SharedPreferencesManager {
@@ -26,7 +26,7 @@ class SharedPreferencesManagerImpl(private val sharedPreferences: SharedPreferen
      * @param key
      * @param value
      */
-    override fun lastSearch(key: String?, value: String?): String {
+    override fun savePrefs(key: String?, value: String?): String {
         value?.run {
             with(sharedPreferences.edit()) {
                 putString(key, value)
@@ -39,5 +39,6 @@ class SharedPreferencesManagerImpl(private val sharedPreferences: SharedPreferen
     companion object {
         const val EMPTY_STRING = ""
         const val LAST_SEARCH = "last_search"
+        const val PREVIOUSLY_VISITED = "previously_visited"
     }
 }

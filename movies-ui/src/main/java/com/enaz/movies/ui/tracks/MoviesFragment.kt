@@ -71,6 +71,12 @@ class MoviesFragment : BaseFragment<MoviesFragmentBinding, MoviesViewModel>(),
         swipe_to_refresh_view.setOnRefreshListener {
             viewModel.refresh()
         }
+        previously_visited.setViewVisibility(
+            if (!viewModel.previouslyVisited().isNullOrEmpty()) getString(
+                R.string.previously_visited,
+                viewModel.previouslyVisited()
+            ) else null
+        )
     }
 
     /**

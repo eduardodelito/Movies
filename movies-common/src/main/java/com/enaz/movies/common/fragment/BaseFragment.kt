@@ -101,4 +101,9 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : DaggerFrag
         super.onStop()
         viewModel.onStop()
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.onDestroy()
+    }
 }

@@ -3,7 +3,9 @@ package com.enaz.movies.ui.tracks
 import com.enaz.movies.client.repository.MoviesRepository
 import com.enaz.movies.common.manager.SharedPreferencesManager
 import com.enaz.movies.common.manager.SharedPreferencesManagerImpl
+import com.enaz.movies.common.util.formatDateToString
 import com.enaz.movies.common.viewmodel.BaseViewModel
+import java.util.*
 import javax.inject.Inject
 
 /**
@@ -41,7 +43,11 @@ class MoviesViewModel @Inject constructor(
      * Refresh movie list from the lat search.
      */
     fun refresh() {
-        moviesRepository.searchMovies(sharedPreferencesManager.lastSearch(SharedPreferencesManagerImpl.LAST_SEARCH))
+        moviesRepository.searchMovies(
+            sharedPreferencesManager.savePrefs(
+                SharedPreferencesManagerImpl.LAST_SEARCH
+            )
+        )
     }
 
     /**
@@ -59,4 +65,25 @@ class MoviesViewModel @Inject constructor(
      * Reset error banner.
      */
     fun resetBanner() = moviesRepository.resetBanner()
+
+    /**
+     * Get previously visited date in string.
+     */
+    fun previouslyVisited() =
+        sharedPreferencesManager.savePrefs(SharedPreferencesManagerImpl.PREVIOUSLY_VISITED)
+
+    /**
+     * Save previously visited date inside the onDestroy method.
+     */
+    override fun onDestroy() {
+        super.onDestroy()
+        sharedPreferencesManager.savePrefs(
+            SharedPreferencesManagerImpl.PREVIOUSLY_VISITED,
+            Calendar.getInstance().time.formatDateToString(DATE_FORMAT_MMMM_dd_yyyy)
+        )
+    }
+
+    companion object {
+        const val DATE_FORMAT_MMMM_dd_yyyy: String = "EEEE MMMM dd, yyyy"
+    }
 }

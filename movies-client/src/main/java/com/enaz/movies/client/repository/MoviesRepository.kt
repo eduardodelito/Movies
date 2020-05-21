@@ -106,7 +106,7 @@ class MoviesRepositoryImpl(
                 if (list.isNotEmpty()) {
                     movieDao.deleteAll()
                     movieDao.insertMovies(list)
-                    sharedPreferencesManager.lastSearch(
+                    sharedPreferencesManager.savePrefs(
                         SharedPreferencesManagerImpl.LAST_SEARCH,
                         search
                     )
@@ -129,12 +129,12 @@ class MoviesRepositoryImpl(
      * Get the recent search.
      */
     override fun getRecent() {
-        val recent = sharedPreferencesManager.lastSearch(SharedPreferencesManagerImpl.LAST_SEARCH)
+        val recent = sharedPreferencesManager.savePrefs(SharedPreferencesManagerImpl.LAST_SEARCH)
         _recentSearch.postValue(
             if (!recent.isNullOrEmpty())
                 Pair(
                     R.string.recent_search,
-                    sharedPreferencesManager.lastSearch(SharedPreferencesManagerImpl.LAST_SEARCH)
+                    sharedPreferencesManager.savePrefs(SharedPreferencesManagerImpl.LAST_SEARCH)
                 ) else null
         )
     }
