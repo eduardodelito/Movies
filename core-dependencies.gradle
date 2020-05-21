@@ -45,12 +45,13 @@ dependencies {
     implementation Libs.Android.navigationUIKtx
     implementation Libs.Android.materialDesign
 
-    implementation Libs.Dagger.core
-    implementation Libs.Dagger.android
-    implementation Libs.Dagger.androidSupport
+    implementation Libs.Google.gson
+    implementation Libs.Google.core
+    implementation Libs.Google.android
+    implementation Libs.Google.androidSupport
 
-    kapt Libs.Dagger.processor
-    kapt Libs.Dagger.compiler
+    kapt Libs.Google.processor
+    kapt Libs.Google.compiler
 
     implementation Libs.Database.roomRuntime
     kapt Libs.Database.roomCompiler
@@ -59,7 +60,6 @@ dependencies {
     implementation Libs.Database.roomRxJava
     implementation Libs.Database.roomGuava
 
-    implementation Libs.Retrofit.gson
     implementation Libs.Retrofit.retrofit
     implementation Libs.Retrofit.retrofitGSONConverter
     implementation Libs.Retrofit.loggingInterceptor
