@@ -27,6 +27,8 @@ Itunes Movies is using Model-View-ViewModel (ie MVVM) template client applicatio
  * Dagger2
  * Coroutine
  
+ Used MVVM because it is an alternative to MVC and MVP patterns when using Data Binding technology. The ViewModel has Built in LifeCycleOwner and doesn't have a reference for View.
+ 
  <b>Mobile Phone: List Screen and Details Screen:</b><br />
  <img src="https://github.com/eduardodelito/Movies/blob/master/screen/Screenshot_1590060430.png" width="30%" />
  &nbsp;&nbsp;
