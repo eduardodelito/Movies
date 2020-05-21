@@ -36,9 +36,9 @@ Itunes Movies is using Model-View-ViewModel (ie MVVM) template client applicatio
  <br /><br />
  
  <b>Tablet: List and Details on single screen.</b><br />
- <img src="https://github.com/eduardodelito/Movies/blob/master/screen/Screenshot_1590060465.png" width="50%" />
+ <img src="https://github.com/eduardodelito/Movies/blob/master/screen/Screenshot_1590060465.png" width="40%" />
     &nbsp;&nbsp;
- <img src="https://github.com/eduardodelito/Movies/blob/master/screen/Screenshot_1590067318.png" width="50%" />
+ <img src="https://github.com/eduardodelito/Movies/blob/master/screen/Screenshot_1590067318.png" width="40%" />
    &nbsp;&nbsp;
  <br /><br />
  
