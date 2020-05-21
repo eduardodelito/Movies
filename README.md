@@ -11,7 +11,7 @@ Itunes Movies is using Model-View-ViewModel (ie MVVM) template client applicatio
  * Used loader in the placeholder image.
  * Error banner for the search query if it is not available.
  
-#Dependency modules
+# Dependency modules
  * buildSrc - Initialize all dependency libraries and versions.
  * movies-client - API request and parsing response and save it into local database.
  * movies-common - shared classes and functions.
