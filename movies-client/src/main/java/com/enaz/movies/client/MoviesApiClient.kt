@@ -48,7 +48,7 @@ class MoviesApiClient(okHttp: OkHttpClient.Builder) : Interceptor, Authenticator
     }
 
     /**
-     * Instance call on for the retrofit service.
+     * Instance call for the retrofit service.
      */
     fun getMoviesResponse(): MoviesApiService {
         return retrofit.create(MoviesApiService::class.java)

@@ -34,8 +34,6 @@ class MoviesViewModel @Inject constructor(
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main
 
-//    val recentSearch = moviesRepository.recentSearch
-
     private val _recentSearch = MutableLiveData<Pair<Int, String>?>()
     val recentSearch: LiveData<Pair<Int, String>?> get() = _recentSearch
 
