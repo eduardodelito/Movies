@@ -1,5 +1,7 @@
 package com.enaz.movies.ui.details
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.enaz.movies.common.util.formatDate
 import com.enaz.movies.common.util.formatTime
 import com.enaz.movies.common.viewmodel.BaseViewModel
@@ -13,6 +15,13 @@ import com.enaz.movies.ui.model.MovieItem
 class DetailsViewModel : BaseViewModel() {
 
     var movieItem: MovieItem? = null
+    private val _detailsAvailable = MutableLiveData<Boolean>(false)
+    val detailsAvailable: LiveData<Boolean> get() = _detailsAvailable
+
+    fun details(movieItem: MovieItem?) {
+        if (movieItem != null)
+            _detailsAvailable.postValue(true)
+    }
 
     /**
      * Format date with the method extension formatStringToDate

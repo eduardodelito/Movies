@@ -1,5 +1,7 @@
 package com.enaz.movies.ui.details
 
+import android.view.View
+import androidx.lifecycle.Observer
 import com.enaz.movies.common.fragment.BaseFragment
 import com.enaz.movies.common.util.replaceImageTo1000
 import com.enaz.movies.ui.model.MovieItem
@@ -32,7 +34,11 @@ class DetailsFragment : BaseFragment<DetailsFragmentBinding, DetailsViewModel>()
     }
 
     override fun subscribeUi() {
-        //Do nothing for now.
+        with(viewModel) {
+            detailsAvailable.observe(viewLifecycleOwner, Observer {result ->
+                details_layout.visibility = if (result) View.VISIBLE else View.GONE
+            })
+        }
     }
 
     companion object {
@@ -44,10 +50,13 @@ class DetailsFragment : BaseFragment<DetailsFragmentBinding, DetailsViewModel>()
      * Update movie details.
      * @param movieItem data to display details.
      */
-    fun updateDetails(movieItem: MovieItem?) {
-        viewModel.movieItem = movieItem
+    fun updateDetails(item: MovieItem?) {
+        with(viewModel) {
+            movieItem = item
+            details(item)
+        }
         getBinding().executePendingBindings()
         getBinding().invalidateAll()
-        movie_image.setImageURI(movieItem?.artworkUrl?.replaceImageTo1000())
+        movie_image.setImageURI(item?.artworkUrl?.replaceImageTo1000())
     }
 }
