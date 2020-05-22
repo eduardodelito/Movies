@@ -6,6 +6,7 @@ This is based on the Guide to app architecture article with the androidx package
 # Features
  * Display list with (Track Name, Artwork, Price, Genre)
  * Display previously visited date.
+ * Display message in the center if the list of movies is empty.
  * Display last recent search.
  * Swipe screen to refresh list.
  * Details with  (Track Name, Artwork, Artist, Genre, Price, Release Date, Length, Description)
@@ -36,17 +37,21 @@ This is based on the Guide to app architecture article with the androidx package
  Used MVVM because it is an alternative to MVC and MVP patterns when using Data Binding technology. The ViewModel has Built in LifeCycleOwner and doesn't have a reference for View.
  
  <b>Mobile Phone: List Screen and Details Screen:</b><br />
- <img src="https://github.com/eduardodelito/Movies/blob/master/screen/Screenshot_1590060430.png" width="30%" />
- &nbsp;&nbsp;
- <img src="https://github.com/eduardodelito/Movies/blob/master/screen/Screenshot_1590060437.png" width="30%" />
+  <img src="https://github.com/eduardodelito/Movies/blob/master/screen/Screenshot_1590131761.png" width="20%" />
   &nbsp;&nbsp;
-  <img src="https://github.com/eduardodelito/Movies/blob/master/screen/Screenshot_1590067450.png" width="30%" />
+ <img src="https://github.com/eduardodelito/Movies/blob/master/screen/Screenshot_1590060430.png" width="20%" />
+ &nbsp;&nbsp;
+ <img src="https://github.com/eduardodelito/Movies/blob/master/screen/Screenshot_1590060437.png" width="20%" />
+  &nbsp;&nbsp;
+  <img src="https://github.com/eduardodelito/Movies/blob/master/screen/Screenshot_1590067450.png" width="20%" />
  <br /><br />
  
  <b>Tablet: List and Details on single screen.</b><br />
- <img src="https://github.com/eduardodelito/Movies/blob/master/screen/Screenshot_1590060465.png" width="40%" />
+  <img src="https://github.com/eduardodelito/Movies/blob/master/screen/Screenshot_1590131642.png" width="30%" />
+     &nbsp;&nbsp;
+ <img src="https://github.com/eduardodelito/Movies/blob/master/screen/Screenshot_1590060465.png" width="30%" />
     &nbsp;&nbsp;
- <img src="https://github.com/eduardodelito/Movies/blob/master/screen/Screenshot_1590067318.png" width="40%" />
+ <img src="https://github.com/eduardodelito/Movies/blob/master/screen/Screenshot_1590067318.png" width="30%" />
    &nbsp;&nbsp;
  <br /><br />
  
