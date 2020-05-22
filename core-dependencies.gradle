@@ -45,7 +45,6 @@ dependencies {
     implementation Libs.Android.navigationUIKtx
     implementation Libs.Android.materialDesign
 
-    implementation Libs.Google.gson
     implementation Libs.Google.core
     implementation Libs.Google.android
     implementation Libs.Google.androidSupport

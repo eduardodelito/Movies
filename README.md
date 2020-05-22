@@ -1,9 +1,10 @@
 # Itunes Movies - Demo App
 
 Itunes Movies is using Model-View-ViewModel (ie MVVM) template client application architecture with modularised dependencies. Used LiveData to ensures UI matches on data state and Data Binding to display the details.
+This is based on the Guide to app architecture article with the androidx package, Kotlin 1.3 and production ready coroutine. I use several android architecture components like LiveData, ViewModel ,Room. Here are several libraries that i use:
 
 # Features
- * Display master detail list with (Track Name, Artwork, Price, Genre)
+ * Display list with (Track Name, Artwork, Price, Genre)
  * Display previously visited date.
  * Display last recent search.
  * Swipe screen to refresh list.
@@ -20,12 +21,17 @@ Itunes Movies is using Model-View-ViewModel (ie MVVM) template client applicatio
 
 
 # Major libraries
- * Navigation
- * Retrofit
- * gson
- * Fresco
- * Dagger2
- * Coroutine
+ * Navigation - To navigate screen
+ * Material - For Android-oriented design
+ * LiveData - For lifecycle-aware
+ * ViewModel - To outlive specific instantiations of views or LifecycleOwners 
+ * Room - database storage
+ * Retrofit - Networking
+ * Fresco - Image Loader
+ * Dagger2 - For injection
+ * Coroutine - For asynchronous
+ * Mockito - Unit Test
+ * Espresso - Unit Test
  
  Used MVVM because it is an alternative to MVC and MVP patterns when using Data Binding technology. The ViewModel has Built in LifeCycleOwner and doesn't have a reference for View.
  

@@ -28,7 +28,6 @@ object Versions {
     const val navigation = "2.3.0-alpha06"
 
     //Google
-    const val gson = "2.8.5"
     const val dagger = "2.25.3"
     const val materialDesign = "1.2.0-alpha03"
 
@@ -85,7 +84,6 @@ object Libs {
     }
 
     private object Google {
-        const val gson = "com.google.code.gson:gson:${Versions.gson}"
         const val core = "com.google.dagger:dagger:${Versions.dagger}"
         const val android = "com.google.dagger:dagger-android:${Versions.dagger}"
         const val androidSupport = "com.google.dagger:dagger-android-support:${Versions.dagger}"
