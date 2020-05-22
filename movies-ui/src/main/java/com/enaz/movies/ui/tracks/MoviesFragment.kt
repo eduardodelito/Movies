@@ -112,6 +112,8 @@ class MoviesFragment : BaseFragment<MoviesFragmentBinding, MoviesViewModel>(),
                     listener?.loadFirstIndex(movies[0])
                 }
             })
+
+            getRecent()
         }
     }
 
