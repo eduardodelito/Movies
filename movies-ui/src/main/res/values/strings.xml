@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="error_query">Invalid query. Please try again.</string>
+    <string name="no_available_date">Please try to search movies.</string>
     <string name="price_label">Price:\u0020</string>
     <string name="movie_artist_label">Artist :\u0020</string>
     <string name="movie_genre_label">Genre :\u0020</string>

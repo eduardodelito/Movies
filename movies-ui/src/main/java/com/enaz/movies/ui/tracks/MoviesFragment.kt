@@ -108,6 +108,7 @@ class MoviesFragment : BaseFragment<MoviesFragmentBinding, MoviesViewModel>(),
             getMovies().observe(viewLifecycleOwner, Observer<List<MovieEntity>> { list ->
                 if (list.isNotEmpty()) {
                     val movies = list.entityModelToMovieItem()
+                    no_available_data_view.visibility = View.GONE
                     moviesAdapter.updateData(movies)
                     listener?.loadFirstIndex(movies[0])
                 }

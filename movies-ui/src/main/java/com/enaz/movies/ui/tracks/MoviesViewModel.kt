@@ -40,7 +40,7 @@ class MoviesViewModel @Inject constructor(
     private val _errorBanner = MutableLiveData<Pair<Boolean, String>?>()
     val errorBanner: LiveData<Pair<Boolean, String>?> get() = _errorBanner
 
-    private val _loading = MutableLiveData<Boolean>()
+    private val _loading = MutableLiveData<Boolean>(false)
     val loading: LiveData<Boolean> get() = _loading
 
     /**
