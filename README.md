@@ -31,8 +31,8 @@ This is based on the Guide to app architecture article with the androidx package
  * Fresco - Image Loader
  * Dagger2 - For injection
  * Coroutine - For asynchronous
- * Mockito - Unit Test
- * Espresso - Unit Test
+ * Mockito - Unit Test(To Do)
+ * Espresso - Unit Test(To Do)
  
  Used MVVM because it is an alternative to MVC and MVP patterns when using Data Binding technology. The ViewModel has Built in LifeCycleOwner and doesn't have a reference for View.
  
