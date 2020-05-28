@@ -36,7 +36,7 @@ This is based on the Guide to app architecture article with the androidx package
  
  Used MVVM because it is an alternative to MVC and MVP patterns when using Data Binding technology. The ViewModel has Built in LifeCycleOwner and doesn't have a reference for View.
  
- #[Released Movies APK here!](https://drive.google.com/file/d/16ETR09wJCFJnqjUCUG0lwll4iF3X43an/view?usp=sharing)
+ [Released Movies APK here!](https://drive.google.com/file/d/16ETR09wJCFJnqjUCUG0lwll4iF3X43an/view?usp=sharing)
  
  <b>Mobile Phone: List Screen and Details Screen:</b><br />
   <img src="https://github.com/eduardodelito/Movies/blob/master/screen/Screenshot_1590131761.png" width="20%" />
