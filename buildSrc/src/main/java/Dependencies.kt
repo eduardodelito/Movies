@@ -16,7 +16,7 @@ object Versions {
     const val versionName = "1.0"
 
     const val kotlin_version = "1.3.72"
-    const val gradle = "4.0.0-rc01"
+    const val gradle = "4.0.0"
 
     //Android
     const val core_ktx = "1.2.0"
